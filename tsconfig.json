@@ -1,0 +1,35 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+
+    "rootDir": "./src",
+
+		// Type Checking
+		"exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+
+		// Emit
+		"declaration": true,
+		"declarationMap": true,
+		"outDir": "./dist",
+		"removeComments": false,
+		"sourceMap": true,
+
+		// Language and Environment
+    "module": "ESNext",
+    "types": ["node"],
+		"lib": ["ESNext"],
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+
+    "skipLibCheck": true
+
+  }
+}

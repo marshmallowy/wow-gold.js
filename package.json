@@ -1,0 +1,24 @@
+{
+  "name": "wow-gold.js",
+  "version": "0.0.1",
+  "description": "A Javascript/TypeScript utility created to parse, convert and perform calculations on a World of Warcraft \"Gold\" value.",
+  "homepage": "https://github.com/marshmallowy/wow-gold.js#readme",
+  "bugs": {
+    "url": "https://github.com/marshmallowy/wow-gold.js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marshmallowy/wow-gold.js.git"
+  },
+  "license": "Apache-2.0",
+  "author": "marshmallowy",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "typescript": "^5.9.3"
+  }
+}
