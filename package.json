@@ -12,13 +12,19 @@
   },
   "license": "Apache-2.0",
   "author": "marshmallowy",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@jest/globals": "^30.2.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.4"
+  },
+  "dependencies": {
+    "decimal.js": "^10.6.0"
   }
 }

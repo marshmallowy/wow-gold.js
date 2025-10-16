@@ -137,3 +137,17 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+build/gold-expression.d.ts
+build/gold-expression.js
+build/gold.d.ts
+build/gold.js
+build/error/InfiniteValueError.d.ts
+build/error/InfiniteValueError.js
+build/error/MalformedGoldStringError,.d.ts
+build/error/MalformedGoldStringError,.js
+build/error/NonIntegerValueError.d.ts
+build/error/NonIntegerValueError.js
+build/error/UnsafeNumberError.d.ts
+build/error/UnsafeNumberError.js
+build/error/ValueNaNError.d.ts
+build/error/ValueNaNError.js
