@@ -5,4 +5,5 @@ test/
 .git/
 .github/
 *.config.js
+*.config.ts
 tsconfig.json
