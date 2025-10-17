@@ -1,6 +1,8 @@
 src/
+build/
 node_modules/
 test/
 .git/
 .github/
 *.config.js
+tsconfig.json

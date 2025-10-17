@@ -151,3 +151,17 @@ build/error/UnsafeNumberError.d.ts
 build/error/UnsafeNumberError.js
 build/error/ValueNaNError.d.ts
 build/error/ValueNaNError.js
+types/gold-expression.d.ts
+types/gold.d.ts
+types/error/InfiniteValueError.d.ts
+types/error/MalformedGoldStringError,.d.ts
+types/error/NonIntegerValueError.d.ts
+types/error/UnsafeNumberError.d.ts
+types/error/ValueNaNError.d.ts
+build/gold-expression.d.ts.map
+build/gold.d.ts.map
+build/error/InfiniteValueError.d.ts.map
+build/error/MalformedGoldStringError,.d.ts.map
+build/error/NonIntegerValueError.d.ts.map
+build/error/UnsafeNumberError.d.ts.map
+build/error/ValueNaNError.d.ts.map
