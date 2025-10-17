@@ -268,7 +268,7 @@ export class Gold {
     }
 
     /**
-     * Round this {@link Gold} value to the nearest whole copper.
+     * Round this {@link Gold} value to the nearest whole __**copper**__.
      * 
      * @param mutate If `true`, performs the calculation on this {@link Gold} instance directly.  
      *               If `false` (default), returns a new {@link Gold} instance with the calculated value.
@@ -284,7 +284,7 @@ export class Gold {
     }
 
     /**
-     * Round this {@link Gold} value to the nearest whole gold.
+     * Round this {@link Gold} value to the nearest whole __**gold**__.
      * 
      * @param mutate If `true`, performs the calculation on this {@link Gold} instance directly.  
      *               If `false` (default), returns a new {@link Gold} instance with the calculated value.
@@ -302,7 +302,7 @@ export class Gold {
     }
 
     /**
-     * Round this {@link Gold} value down to the nearest whole copper.
+     * Round this {@link Gold} value down to the nearest whole __**copper**__.
      * 
      * @param mutate If `true`, performs the calculation on this {@link Gold} instance directly.  
      *               If `false` (default), returns a new {@link Gold} instance with the calculated value.
@@ -314,7 +314,7 @@ export class Gold {
     }
 
     /**
-     * Round this {@link Gold} value down to the nearest whole gold.
+     * Round this {@link Gold} value down to the nearest whole __**gold**__.
      * 
      * @param mutate If `true`, performs the calculation on this {@link Gold} instance directly.  
      *               If `false` (default), returns a new {@link Gold} instance with the calculated value.
@@ -332,7 +332,7 @@ export class Gold {
     }
 
     /**
-     * Round this {@link Gold} value up to the nearest whole copper.
+     * Round this {@link Gold} value up to the nearest whole __**copper**__.
      * 
      * @param mutate If `true`, performs the calculation on this {@link Gold} instance directly.  
      *               If `false` (default), returns a new {@link Gold} instance with the calculated value.
@@ -344,7 +344,7 @@ export class Gold {
     }
 
     /**
-     * Round this {@link Gold} value up to the nearest whole gold.
+     * Round this {@link Gold} value up to the nearest whole __**gold**__.
      * 
      * @param mutate If `true`, performs the calculation on this {@link Gold} instance directly.  
      *               If `false` (default), returns a new {@link Gold} instance with the calculated value.
