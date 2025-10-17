@@ -3,7 +3,7 @@ import { ValueNaNError } from './error/ValueNaNError';
 import { InfiniteValueError } from './error/InfiniteValueError';
 import { UnsafeNumberError } from './error/UnsafeNumberError';
 import { ExplicitCopper, ExplicitGold, ExplicitSilverAndCopper, ExplicitSilverOrCopper, GenericGold, GoldExpressions } from './gold-expression';
-import { MalformedGoldStringError } from './error/MalformedGoldStringError,';
+import { MalformedGoldExpressionError } from './error/MalformedGoldExpressionError';
 
 type ResolvableTotalSegment = Decimal | BigInt | number;
 type GoldFromTotalResolvableSegments = {
@@ -532,7 +532,7 @@ export class Gold {
 
         if (totalCopper !== undefined) return new Gold(totalCopper);
 
-        throw new MalformedGoldStringError();
+        throw new MalformedGoldExpressionError();
 
     }
 

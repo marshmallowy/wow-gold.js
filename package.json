@@ -1,6 +1,6 @@
 {
   "name": "wow-gold.js",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "A Javascript/TypeScript utility created to parse, convert and perform calculations on a World of Warcraft \"Gold\" value.",
   "homepage": "https://github.com/marshmallowy/wow-gold.js#readme",
   "bugs": {
@@ -13,16 +13,22 @@
   "license": "Apache-2.0",
   "author": "marshmallowy",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "dist/gold",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf dist && rimraf types && rimraf build",
+    "build": "tsc",
+    "prepare-dist-package": "npm run clean && npm run build && mkdir dist && cpx \"build/**/*.*\" dist",
+    "dry-publish": "npm publish --dry-run"
   },
   "devDependencies": {
-    "@types/node": "^24.7.2",
-    "typescript": "^5.9.3",
     "@jest/globals": "^30.2.0",
+    "@types/node": "^24.7.2",
+    "cpx": "^1.5.0",
     "jest": "^30.2.0",
-    "ts-jest": "^29.4.4"
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.4",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "decimal.js": "^10.6.0"
