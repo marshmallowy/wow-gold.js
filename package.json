@@ -12,6 +12,7 @@
   },
   "license": "Apache-2.0",
   "author": "marshmallowy",
+<<<<<<< HEAD
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
@@ -20,6 +21,10 @@
       "require": "./dist/index.cjs"
     }
   },
+=======
+  "type": "commonjs",
+  "main": "dist/gold",
+>>>>>>> d28c8ab34bbaf21b089a91c479b4023071c5787f
   "scripts": {
     "test": "jest",
     "clean": "rimraf dist && rimraf types && rimraf build",
@@ -30,11 +35,18 @@
   "devDependencies": {
     "@jest/globals": "^30.2.0",
     "@types/node": "^24.7.2",
+<<<<<<< HEAD
     "cpx": "^1.2.1",
     "jest": "^30.2.0",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.4.4",
     "tsup": "^8.5.0",
+=======
+    "cpx": "^1.5.0",
+    "jest": "^30.2.0",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.4",
+>>>>>>> d28c8ab34bbaf21b089a91c479b4023071c5787f
     "typescript": "^5.9.3"
   },
   "dependencies": {
