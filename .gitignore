@@ -165,3 +165,4 @@ build/error/MalformedGoldStringError,.d.ts.map
 build/error/NonIntegerValueError.d.ts.map
 build/error/UnsafeNumberError.d.ts.map
 build/error/ValueNaNError.d.ts.map
+package-lock.json
