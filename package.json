@@ -22,9 +22,7 @@
   },
   "scripts": {
     "test": "jest",
-    "clean": "rimraf dist && rimraf types && rimraf build",
-    "build": "tsc",
-    "prepare-dist-package": "npm run clean && npm run build && mkdir dist && cpx \"build/**/*.*\" dist",
+    "build": "tsup",
     "dry-publish": "npm publish --dry-run"
   },
   "devDependencies": {
