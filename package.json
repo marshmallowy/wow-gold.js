@@ -1,6 +1,6 @@
 {
   "name": "wow-gold.js",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Javascript/TypeScript utility created to parse, convert and perform calculations on a World of Warcraft \"Gold\" value.",
   "homepage": "https://github.com/marshmallowy/wow-gold.js#readme",
   "bugs": {
