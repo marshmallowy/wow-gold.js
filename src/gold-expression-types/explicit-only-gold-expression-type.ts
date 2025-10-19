@@ -9,7 +9,7 @@ type MatchGroups = Partial<NegativeGoldExpressionMatchGroup> & GoldNotationGoldE
     gold: string;
 }
 
-export const OnlyGoldExpressionType = GoldExpressionType.create(regexp, (expression: any, expressionType: GoldExpressionTypeMatchableResolvable<MatchGroups>) => {
+export const ExplicitOnlyGoldExpressionType = GoldExpressionType.create(regexp, (expression: any, expressionType: GoldExpressionTypeMatchableResolvable<MatchGroups>) => {
     const match = GoldExpressionType.match(expression, expressionType);
     if (match) {
         let totalCopper = new Decimal(0);
@@ -22,4 +22,4 @@ export const OnlyGoldExpressionType = GoldExpressionType.create(regexp, (express
     return undefined;
 });
 
-export type OnlyGoldExpressionType = typeof OnlyGoldExpressionType;
+export type ExplicitOnlyGoldExpressionType = typeof ExplicitOnlyGoldExpressionType;

@@ -8,7 +8,7 @@ import { SilverAndCopperExpressionType } from "./gold-expression-types/silver-an
 import { SilverOrCopperExpressionType } from "./gold-expression-types/silver-or-copper-expression-type";
 import { GenericGoldExpressionType } from "./gold-expression-types/generic-gold-expression-type";
 import { ExplicitGoldExpressionType } from "./gold-expression-types/explicit-gold-expression-type";
-import { OnlyGoldExpressionType as ExplicitOnlyGoldExpressionType } from "./gold-expression-types/explicit-only-gold-expression-type";
+import { ExplicitOnlyGoldExpressionType } from "./gold-expression-types/explicit-only-gold-expression-type";
 import { InvalidGoldExpressionError } from "./errors/invalid-gold-expression-error";
 
 type GoldMathValueResolvable = Gold | Decimal.Value;
