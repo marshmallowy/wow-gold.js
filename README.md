@@ -1,11 +1,18 @@
 # wow-gold.js
 A Javascript/TypeScript utility created to parse, convert and perform calculations on a World of Warcraft "Gold" value.
 
+Still in development.<br/>
+The majority of the library can be accessed through `Gold`:
+```js
+import { Gold } from 'wow-gold.js';
+// or
+const { Gold } = require('wow-gold.js');
+```
 
 
 
 
-
+<br><br><br><br><br>
 ---
 
 
