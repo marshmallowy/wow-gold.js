@@ -4,8 +4,7 @@
         // https://aka.ms/tsconfig
 
         /* Language and Environment */
-        "target": "esnext",
-        "lib": [ "esnext" ],
+        "target": "es2024",
 
         /* Modules */
         "module": "commonjs",
