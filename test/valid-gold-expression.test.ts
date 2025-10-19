@@ -39,7 +39,7 @@ describe("Valid Gold-String Match", () => {
         describe("Allow", () => {
             for (const goldString of explicitCopper.allow) {
                 test(`Allow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitCopper')).toBe(true);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.EXPLICIT_COPPER)).toBe(true);
                 })
             }
         })
@@ -47,7 +47,7 @@ describe("Valid Gold-String Match", () => {
         describe("Disallow", () => {
             for (const goldString of explicitCopper.disallow) {
                 test(`Disallow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitCopper')).toBe(false);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.EXPLICIT_COPPER)).toBe(false);
                 })
             }
         })
@@ -56,7 +56,7 @@ describe("Valid Gold-String Match", () => {
 
     // -- -- --
 
-    const explicitSilverAndCopper = {
+    const silverAndCopper = {
         allow: withNegs([
             "12s 34c",
             "01s 02c",
@@ -73,20 +73,20 @@ describe("Valid Gold-String Match", () => {
         ])
     }
 
-    describe("Explicit Silver AND Copper", () => {
+    describe("Silver AND Copper", () => {
 
         describe("Allow", () => {
-            for (const goldString of explicitSilverAndCopper.allow) {
+            for (const goldString of silverAndCopper.allow) {
                 test(`Allow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitSilverAndCopper')).toBe(true);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.SILVER_AND_COPPER)).toBe(true);
                 })
             }
         })
 
         describe("Disallow", () => {
-            for (const goldString of explicitSilverAndCopper.disallow) {
+            for (const goldString of silverAndCopper.disallow) {
                 test(`Disallow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitSilverAndCopper')).toBe(false);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.SILVER_AND_COPPER)).toBe(false);
                 })
             }
         })
@@ -95,7 +95,7 @@ describe("Valid Gold-String Match", () => {
 
     // -- -- --
 
-    const explicitSilverOrCopper = {
+    const silverOrCopper = {
         allow: withNegs([
             "12s",
             "01s",
@@ -115,20 +115,20 @@ describe("Valid Gold-String Match", () => {
         ])
     }
 
-    describe("Explicit Silver OR Copper", () => {
+    describe("Silver OR Copper", () => {
 
         describe("Allow", () => {
-            for (const goldString of explicitSilverOrCopper.allow) {
+            for (const goldString of silverOrCopper.allow) {
                 test(`Allow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitSilverOrCopper')).toBe(true);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.SILVER_OR_COPPER)).toBe(true);
                 })
             }
         })
 
         describe("Disallow", () => {
-            for (const goldString of explicitSilverOrCopper.disallow) {
+            for (const goldString of silverOrCopper.disallow) {
                 test(`Disallow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitSilverOrCopper')).toBe(false);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.SILVER_OR_COPPER)).toBe(false);
                 })
             }
         })
@@ -139,42 +139,34 @@ describe("Valid Gold-String Match", () => {
 
     const explicitGold = {
         allow: withNegs([
-            "1",
             "1g",
             "1k",
             "1m",
             "1b",
-            "123",
             "123g",
             "123k",
             "123m",
             "123b",
-            "0001",
             "0001g",
             "0001k",
             "0001m",
             "0001b",
-            "000123",
             "000123g",
             "000123k",
             "000123m",
             "000123b",
-            "1.1234",
             "1.1234g",
             "1.1234k",
             "1.1234m",
             "1.1234b",
-            "123.1234",
             "123.1234g",
             "123.1234k",
             "123.1234m",
             "123.1234b",
-            "0001.1234",
             "0001.1234g",
             "0001.1234k",
             "0001.1234m",
             "0001.1234b",
-            "000123.1234",
             "000123.1234g",
             "000123.1234k",
             "000123.1234m",
@@ -182,6 +174,14 @@ describe("Valid Gold-String Match", () => {
         ]),
         disallow: withNegs([
             "",
+            "1",
+            "123",
+            "0001",
+            "000123",
+            "1.1234",
+            "123.1234",
+            "0001.1234",
+            "000123.1234",
             "1s",
             "1c",
             "12s 34c",
@@ -239,7 +239,7 @@ describe("Valid Gold-String Match", () => {
         describe("Allow", () => {
             for (const goldString of explicitGold.allow) {
                 test(`Allow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitGold')).toBe(true);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.EXPLICIT_GOLD)).toBe(true);
                 })
             }
         })
@@ -247,7 +247,7 @@ describe("Valid Gold-String Match", () => {
         describe("Disallow", () => {
             for (const goldString of explicitGold.disallow) {
                 test(`Disallow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'ExplicitGold')).toBe(false);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.EXPLICIT_GOLD)).toBe(false);
                 })
             }
         })
@@ -382,7 +382,7 @@ describe("Valid Gold-String Match", () => {
         describe("Allow", () => {
             for (const goldString of genericGold.allow) {
                 test(`Allow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'GenericGold')).toBe(true);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.GENERIC_GOLD)).toBe(true);
                 })
             }
         })
@@ -390,7 +390,7 @@ describe("Valid Gold-String Match", () => {
         describe("Disallow", () => {
             for (const goldString of genericGold.disallow) {
                 test(`Disallow '${goldString}'`, () => {
-                    expect(Gold.isGoldString(goldString, 'GenericGold')).toBe(false);
+                    expect(Gold.isGoldExpression(goldString, Gold.ExpressionType.GENERIC_GOLD)).toBe(false);
                 })
             }
         })
