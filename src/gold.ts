@@ -813,8 +813,7 @@ export class Gold implements GoldMath {
      * @note Use {@link isNegative} to check if this {@link Gold} value is negative.
      */
     public get gold() {
-        return this._rawCopper.abs().div(COPPER_PER_GOLD).floor();
-        // return (this.isNegative ? gold.ceil() : gold.floor()).abs().toNumber();
+        return this._rawCopper.abs().div(COPPER_PER_GOLD).floor().toNumber();
     }
 
     /**
@@ -823,8 +822,7 @@ export class Gold implements GoldMath {
      * @note Use {@link isNegative} to check if this {@link Gold} value is negative.
      */
     public get silver() {
-        return this._rawCopper.abs().mod(COPPER_PER_GOLD).div(COPPER_PER_SILVER).floor();
-        // return (this.isNegative ? silver.ceil() : silver.floor()).abs().toNumber();
+        return this._rawCopper.abs().mod(COPPER_PER_GOLD).div(COPPER_PER_SILVER).floor().toNumber();
     }
 
     /**
@@ -833,8 +831,7 @@ export class Gold implements GoldMath {
      * @note Use {@link isNegative} to check if this {@link Gold} value is negative.
      */
     public get copper() {
-        return this._rawCopper.abs().mod(COPPER_PER_SILVER).floor();
-        // return (this.isNegative ? copper.ceil() : copper.floor()).abs().toNumber();
+        return this._rawCopper.abs().mod(COPPER_PER_SILVER).floor().toNumber();
     }
     /**
      * Get a **JavaScript** [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) representation of the total copper held by this {@link Gold} value.  
