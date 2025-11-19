@@ -886,9 +886,9 @@ export class Gold implements GoldMath {
      * A formatter can be provided, otherwise the default is used.
      * 
      * Default format:
-     * - 1g03s34c
-     * - 3,234,533g00s01c
-     * - -533g10s00c
+     * - 1g 03s 34c
+     * - 3,234,533g 00s 01c
+     * - -533g 10s 00c
      * 
      * @param formatter The formatter to use instead of the default.
      * @returns The formatted gold string.

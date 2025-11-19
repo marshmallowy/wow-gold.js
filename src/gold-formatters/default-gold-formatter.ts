@@ -7,5 +7,5 @@ export const DefaultGoldFormatter = GoldFormatter.fromSegments((isNegative, gold
         silver.toString().padStart(2, '0'),
         copper.toString().padStart(2, '0'),
     ]
-    return `${negStr}${goldStr}g${silverStr}s${copperStr}c`;
+    return `${negStr}${goldStr}g ${silverStr}s ${copperStr}c`;
 })
