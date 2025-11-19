@@ -13,18 +13,8 @@ type MatchGroups = Partial<NegativeGoldExpressionMatchGroup> & GoldNotationGoldE
 export const ExplicitGoldExpressionType = GoldExpressionType.create(regexp, (expression: any, expressionType: GoldExpressionTypeMatchableResolvable<MatchGroups>) => {
     const match = GoldExpressionType.match(expression, expressionType);
     if (match) {
-        let totalCopper = new Decimal(0);
-
         const multiplier = Gold.getGoldNotationCopperMultiplier(match.goldNotation);
-        totalCopper = new Decimal(`${match.neg ?? ""}${match.gold.replace(/[,_]/g, '')}`).mul(multiplier);
-        
-        if (match.fractionalGold) {
-            totalCopper = totalCopper.add(
-                new Decimal(`${match.neg ?? ""}0.${match.fractionalGold}`).mul(Gold.COPPER_PER_GOLD)
-            )
-        }
-
-        return totalCopper;
+        return new Decimal(`${match.neg ?? ""}${match.gold.replace(/[,_]/g, '')}${match.fractionalGold ?? ''}`).mul(multiplier);
     }
     return undefined;
 });

@@ -41,16 +41,11 @@ export const GenericGoldExpressionType = GoldExpressionType.create(regexp, (expr
     const match = GoldExpressionType.match(expression, expressionType);
     if (match) {
         let totalCopper = new Decimal(0);
+
         if (match.gold) {
 
             const multiplier = Gold.getGoldNotationCopperMultiplier(match.goldNotation);
-            totalCopper = new Decimal(`${match.neg ?? ""}${match.gold.replace(/[,_]/g, '')}`).mul(multiplier);
-            
-            if (match.fractionalGold) {
-                totalCopper = totalCopper.add(
-                    new Decimal(`${match.neg ?? ""}0.${match.fractionalGold}`).mul(Gold.COPPER_PER_GOLD)
-                )
-            }
+            totalCopper = new Decimal(`${match.neg ?? ""}${match.gold.replace(/[,_]/g, '')}${match.fractionalGold ?? ''}`).mul(multiplier);
 
         }
 
