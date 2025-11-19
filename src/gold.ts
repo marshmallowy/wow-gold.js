@@ -772,10 +772,14 @@ export class Gold implements GoldMath {
      * @param rawCopper The total amount of copper contained in this {@link Gold} value.
      */
     constructor(rawCopper: Gold.SegmentResolvable) {
-        try {
-            this._rawCopper = Gold.getCopperFromTotal({ 'copper': rawCopper })
-        } catch (e) {
-            throw e;
+        if (!rawCopper) {
+            this._rawCopper = new Decimal(0);
+        } else {
+            try {
+                this._rawCopper = Gold.getCopperFromTotal({ 'copper': rawCopper })
+            } catch (e) {
+                throw e;
+            }
         }
     }
 
