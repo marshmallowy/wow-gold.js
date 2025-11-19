@@ -165,7 +165,6 @@ build/error/MalformedGoldStringError,.d.ts.map
 build/error/NonIntegerValueError.d.ts.map
 build/error/UnsafeNumberError.d.ts.map
 build/error/ValueNaNError.d.ts.map
-package-lock.json
 build/gold-expression-type.d.ts
 build/gold-expression-type.js
 build/index.d.ts
