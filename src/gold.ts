@@ -10,6 +10,8 @@ import { GenericGoldExpressionType } from "./gold-expression-types/generic-gold-
 import { ExplicitGoldExpressionType } from "./gold-expression-types/explicit-gold-expression-type";
 import { ExplicitOnlyGoldExpressionType } from "./gold-expression-types/explicit-only-gold-expression-type";
 import { InvalidGoldExpressionError } from "./errors/invalid-gold-expression-error";
+import { GoldFormatter } from "./gold-formatter";
+import { DefaultGoldFormatter } from "./gold-formatters/default-gold-formatter";
 
 type GoldMathValueResolvable = Gold | Decimal.Value;
 
@@ -395,6 +397,9 @@ const SegmentCopperAmount: Record<Gold.SegmentName, Decimal> = {
 
 } as const;
 
+// -- -- -- --
+
+const DEFAULT_GOLD_FORMATTER = DefaultGoldFormatter;
 
 // -- -- -- --
 
@@ -866,22 +871,30 @@ export class Gold implements GoldMath {
     }
 
     /**
-     * Convert this {@link Gold} value to a simple gold string, with a formatted gold amount and padded silver/copper.
-     * 
-     * - 1g 03s 34c
-     * - 3,234,533g 00s 01c
-     * - -533g 10s 00c
+     * Convert this {@link Gold} value to a gold string.  
+     * Uses {@link format} with the default formatter.
      * 
      * @returns the gold string
      */
     public toString() {
-        const negStr = this.isNegative ? "-" : "";
-        const [ gold, silver, copper ] = [
-            this.gold.toLocaleString(),
-            this.silver.toString().padStart(2, '0'),
-            this.copper.toString().padStart(2, '0'),
-        ]
-        return `${negStr}${gold}g ${silver}s ${copper}c`;
+        return this.format();
+    }
+
+
+    /**
+     * Format this {@link Gold} value into a string.  
+     * A formatter can be provided, otherwise the default is used.
+     * 
+     * Default format:
+     * - 1g03s34c
+     * - 3,234,533g00s01c
+     * - -533g10s00c
+     * 
+     * @param formatter The formatter to use instead of the default.
+     * @returns The formatted gold string.
+     */
+    public format(formatter: GoldFormatter<any> = DEFAULT_GOLD_FORMATTER) {
+        return formatter.format(this);
     }
 
     /**
