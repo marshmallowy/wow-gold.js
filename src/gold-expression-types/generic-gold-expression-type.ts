@@ -45,7 +45,7 @@ export const GenericGoldExpressionType = GoldExpressionType.create(regexp, (expr
         if (match.gold) {
 
             const multiplier = Gold.getGoldNotationCopperMultiplier(match.goldNotation);
-            totalCopper = new Decimal(`${match.neg ?? ""}${match.gold.replace(/[,_]/g, '')}${match.fractionalGold ?? ''}`).mul(multiplier);
+            totalCopper = new Decimal(`${match.neg ?? ""}${match.gold.replace(/[,_]/g, '')}.${match.fractionalGold ?? '0'}`).mul(multiplier);
 
         }
 
