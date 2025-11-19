@@ -11,6 +11,9 @@ export * from './gold-expression-types/silver-or-copper-expression-type';
 export * from './gold-expression-types/generic-gold-expression-type';
 export * from './gold-expression-types/explicit-gold-expression-type';
 export * from './gold-expression-types/explicit-only-gold-expression-type';
-
 export * from './gold-expression-type';
+
+export * from './gold-formatters/default-gold-formatter';
+export * from './gold-formatter';
+
 export * from './gold';
