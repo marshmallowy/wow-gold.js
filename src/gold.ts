@@ -453,37 +453,37 @@ export class Gold implements GoldMath {
      * The total amount of copper in one copper (1).  
      * See: {@link Gold.getSegmentCopperAmount}
      */
-    static get COPPER_PER_COPPER() { return COPPER_PER_COPPER; }
+    public static get COPPER_PER_COPPER() { return COPPER_PER_COPPER; }
 
     /**
      * The total amount of copper in one silver (100).  
      * See: {@link Gold.getSegmentCopperAmount}
      */
-    static get COPPER_PER_SILVER() { return COPPER_PER_SILVER; }
+    public static get COPPER_PER_SILVER() { return COPPER_PER_SILVER; }
 
     /**
      * The total amount of copper in one gold (10,000).  
      * See: {@link Gold.getSegmentCopperAmount}
      */
-    static get COPPER_PER_GOLD() { return COPPER_PER_GOLD; }
+    public static get COPPER_PER_GOLD() { return COPPER_PER_GOLD; }
 
     /**
      * The total amount of copper in 1k gold (10,000,000).  
      * See: {@link Gold.getGoldNotationCopperMultiplier}
      */
-    static get COPPER_PER_THOUSAND_GOLD() { return COPPER_PER_THOUSAND_GOLD; }
+    public static get COPPER_PER_THOUSAND_GOLD() { return COPPER_PER_THOUSAND_GOLD; }
 
     /**
      * The total amount of copper in 1m gold (10,000,000,000).  
      * See: {@link Gold.getGoldNotationCopperMultiplier}
      */
-    static get COPPER_PER_MILLION_GOLD() { return COPPER_PER_MILLION_GOLD; }
+    public static get COPPER_PER_MILLION_GOLD() { return COPPER_PER_MILLION_GOLD; }
 
     /**
      * The total amount of copper in 1b gold (10,000,000,000,000).  
      * See: {@link Gold.getGoldNotationCopperMultiplier}
      */
-    static get COPPER_PER_BILLION_GOLD() { return COPPER_PER_BILLION_GOLD; }
+    public static get COPPER_PER_BILLION_GOLD() { return COPPER_PER_BILLION_GOLD; }
 
 
     // --
@@ -495,25 +495,25 @@ export class Gold implements GoldMath {
      * The minimum *signed* `number` that **Javascript** accurately supports.  
      * [`Number.MIN_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER): `−(2^53 − 1)` = `−9,007,199,254,740,991`
      */
-    static get MIN_COPPER_INT() { return Number.MIN_SAFE_INTEGER; }
+    public static get MIN_COPPER_INT() { return Number.MIN_SAFE_INTEGER; }
 
     /**
      * The maximum *signed* `number` that **Javascript** accurately supports.  
      * [`Number.MAX_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER): `(2^53) - 1` = `9,007,199,254,740,991` 
      */
-    static get MAX_COPPER_INT() { return Number.MAX_SAFE_INTEGER; }
+    public static get MAX_COPPER_INT() { return Number.MAX_SAFE_INTEGER; }
 
     /**
      * The minimum *signed* `BIGINT` that **MySQL** supports.  
      * [`MySQL BIGINT`](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html) : `-2^63` = `-9,223,372,036,854,775,808`
      */
-    static get MIN_COPPER_MYSQL_BIGINT() { return MIN_MYSQL_SIGNED_BIGINT; }
+    public static get MIN_COPPER_MYSQL_BIGINT() { return MIN_MYSQL_SIGNED_BIGINT; }
 
     /**
      * The maximum *signed* `BIGINT` that **MySQL** supports.  
      * [`MySQL BIGINT`](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html): `2^63-1` = `9,223,372,036,854,775,807`
      */
-    static get MAX_COPPER_MYSQL_BIGINT() { return MAX_MYSQL_SIGNED_BIGINT; }
+    public static get MAX_COPPER_MYSQL_BIGINT() { return MAX_MYSQL_SIGNED_BIGINT; }
 
     // -- -- -- --
 
@@ -521,13 +521,18 @@ export class Gold implements GoldMath {
      * The minimum *signed* [`BIGINT`](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html) that MySQL supports.  
      * [`MySQL BIGINT`](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html): `0` = `0`
      */
-    static get MIN_COPPER_MYSQL_UBIGINT() { return MIN_MYSQL_UNSIGNED_BIGINT; }
+    public static get MIN_COPPER_MYSQL_UBIGINT() { return MIN_MYSQL_UNSIGNED_BIGINT; }
 
     /**
      * The maximum *signed* [`BIGINT`](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html) that MySQL supports.  
      * [`MySQL BIGINT`](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html): `(2^64) - 1` = `18,446,744,073,709,551,615`
      */
-    static get MAX_COPPER_MYSQL_UBIGINT() { return MAX_MYSQL_UNSIGNED_BIGINT; }
+    public static get MAX_COPPER_MYSQL_UBIGINT() { return MAX_MYSQL_UNSIGNED_BIGINT; }
+
+    /**
+     * Returns a new instance of {@link Gold}, with a zero (0) value.
+     */
+    public static get Zero() { return new Gold(0); }
     
 
     // --
@@ -774,6 +779,9 @@ export class Gold implements GoldMath {
 
     /**
      * Create a new {@link Gold} value instance.
+     * 
+     * An instance with a zero (0) value will be created if the specified value is `undefined`, `null`, or falsy.
+     * 
      * @param rawCopper The total amount of copper contained in this {@link Gold} value.
      */
     constructor(rawCopper: Gold.SegmentResolvable) {
@@ -817,7 +825,7 @@ export class Gold implements GoldMath {
     public get totalCopper() { return this.isNegative ? this._rawCopper.ceil() : this._rawCopper.floor() }
 
     /**
-     * Returns the segmented amount of gold as an absolute integer number.
+     * Returns only the segmented amount of gold as an absolute, floored integer number.
      * 
      * @note Use {@link isNegative} to check if this {@link Gold} value is negative.
      */
@@ -826,7 +834,7 @@ export class Gold implements GoldMath {
     }
 
     /**
-     * Returns the segmented amount of silver as an absolute integer number between 0-99.
+     * Returns only the segmented amount of silver as an absolute, floored integer number between 0-99.
      * 
      * @note Use {@link isNegative} to check if this {@link Gold} value is negative.
      */
@@ -835,7 +843,7 @@ export class Gold implements GoldMath {
     }
 
     /**
-     * Returns the segmented amount of copper as an absolute integer number between 0-99.
+     * Returns only the segmented amount of copper as an absolute, floored integer number between 0-99.
      * 
      * @note Use {@link isNegative} to check if this {@link Gold} value is negative.
      */
