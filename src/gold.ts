@@ -933,6 +933,18 @@ export class Gold implements GoldMath {
         return this.format();
     }
 
+    /**
+     * Converts this {@link Gold} value to a `BigInt` value that represents the total amount of **copper** held by this {@link Gold} value.
+     * @returns The BigInt representation of this {@link Gold} value.
+     */
+    public valueOf() {
+        return this.toBigInt();
+    }
+
+    public [Symbol.toPrimitive](hint: string) {
+        return hint === 'string' ? this._rawCopper.toString() : this.valueOf();
+    }
+
 
     /**
      * Format this {@link Gold} value into a string.  
@@ -947,7 +959,7 @@ export class Gold implements GoldMath {
      * @returns The formatted gold string.
      */
     public format(formatter: GoldFormatter<any> = DEFAULT_GOLD_FORMATTER) {
-        return formatter.format(this);
+        return Gold.format(this, formatter);
     }
 
     /**
@@ -959,7 +971,6 @@ export class Gold implements GoldMath {
     public toJSON() {
         return this._rawCopper.toJSON();
     }
-
 
     // --
     // -- -- Gold Math Functions -- --
