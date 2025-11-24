@@ -704,6 +704,23 @@ export class Gold implements GoldMath {
         return new Gold(totalCopper);
     }
 
+    /**
+     * Format the specified {@link Gold} value, or total amount of **copper**, into a gold string.  
+     * A formatter can be provided, otherwise the default is used.
+     * 
+     * Default format:
+     * - 1g 03s 34c
+     * - 3,234,533g 00s 01c
+     * - -533g 10s 00c
+     * 
+     * @param rawCopper The {@link Gold} value, or the amount of **copper** to format as a gold string.
+     * @param formatter The formatter to use instead of the default.
+     * @returns The formatted gold string.
+     */
+    public static format(rawCopper: Gold | Gold.SegmentResolvable | null | undefined, formatter: GoldFormatter<any> = DEFAULT_GOLD_FORMATTER) {
+        return rawCopper instanceof Gold ? formatter.format(rawCopper) : formatter.format(new Gold(rawCopper));
+    }
+
 
     // --
     // -- -- Static Gold Expression Functions -- --
@@ -812,7 +829,7 @@ export class Gold implements GoldMath {
      * 
      * @param rawCopper The total amount of copper contained in this {@link Gold} value.
      */
-    constructor(rawCopper: Gold.SegmentResolvable) {
+    constructor(rawCopper: Gold.SegmentResolvable | null | undefined) {
         if (!rawCopper) {
             this._rawCopper = new Decimal(0);
         } else {
@@ -828,29 +845,29 @@ export class Gold implements GoldMath {
      * Get the total, raw amount of copper held by this {@link Gold}  
      * value, including any fractional copper amount.
      */
-    public get rawCopper() { return this._rawCopper }
+    public get rawCopper() { return new Decimal(this._rawCopper) }
 
     /**
      * Whether or not this {@link Gold} value is negative.
      */
-    public get isNegative() { return this._rawCopper.isNegative() }
+    public get isNegative() { return this._rawCopper.isNegative(); }
 
     /**
      * Whether or not this {@link Gold} value is positive.
      */
-    public get isPositive() { return this._rawCopper.isPositive() }
+    public get isPositive() { return this._rawCopper.isPositive(); }
 
     /**
      * Whether or not this {@link Gold} value is zero (0).
      */
-    public get isZero() { return this._rawCopper.isZero() }
+    public get isZero() { return this._rawCopper.isZero(); }
 
     // -- -- -- --
 
     /**
      * Get the total amount of copper held by this {@link Gold} value, rounded to the nearest whole number.
      */
-    public get totalCopper() { return this.isNegative ? this._rawCopper.ceil() : this._rawCopper.floor() }
+    public get totalCopper() { return this.isNegative ? this._rawCopper.ceil() : this._rawCopper.floor(); }
 
     /**
      * Returns only the segmented amount of gold as an absolute, floored integer number.
