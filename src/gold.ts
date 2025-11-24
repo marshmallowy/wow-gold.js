@@ -399,6 +399,15 @@ const SegmentCopperAmount: Record<Gold.SegmentName, Decimal> = {
 
 // -- -- -- --
 
+/**
+ * The maximum amount of copper that a player can hold on their player's inventory.
+ */
+const PLAYER_MAX_CAPACITY_COPPER = new Decimal(9_999_999).mul(COPPER_PER_GOLD);
+const GBANK_MAX_CAPACITY_COPPER = new Decimal(9_999_999).mul(COPPER_PER_GOLD);
+const WARBANK_MAX_CAPACITY_COPPER = new Decimal(99_999_999).mul(COPPER_PER_GOLD);
+
+// -- -- -- --
+
 const DEFAULT_GOLD_FORMATTER = DefaultGoldFormatter;
 
 // -- -- -- --
@@ -529,10 +538,29 @@ export class Gold implements GoldMath {
      */
     public static get MAX_COPPER_MYSQL_UBIGINT() { return MAX_MYSQL_UNSIGNED_BIGINT; }
 
+
+    // -- -- -- --
+
+
     /**
-     * Returns a new instance of {@link Gold}, with a zero (0) value.
+     * Returns a new instance of {@link Gold} that represents a zero (0) amount.
      */
     public static get Zero() { return new Gold(0); }
+
+    /**
+     * Returns a new instance of {@link Gold} that represents the maximum amount of gold that a player can hold.
+     */
+    public static get PlayerInventoryMax() { return new Gold(PLAYER_MAX_CAPACITY_COPPER); }
+
+    /**
+     * Returns a new instance of {@link Gold} that represents the maximum amount of gold that a guild bank can hold.
+     */
+    public static get GuildBankMax() { return new Gold(GBANK_MAX_CAPACITY_COPPER); }
+
+    /**
+     * Returns a new instance of {@link Gold} that represents the maximum amount of gold that a warbank can hold.
+     */
+    public static get WarbankMax() { return new Gold(WARBANK_MAX_CAPACITY_COPPER); }
     
 
     // --
