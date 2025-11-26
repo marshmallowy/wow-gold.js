@@ -3,7 +3,7 @@ import { GoldExpressionType, GoldExpressionTypeMatchableResolvable, GoldNotation
 import { Gold } from "../gold";
 
 
-const regexp = /(?:(?<=^)(?<neg>[-]){0,1}(?<gold>(?:\d{1,3}(?:(?:[,]\d{3})+|(?:[_]\d{3})+))|\d+)(?:[.](?<fractionalGold>\d+)){0,1}(?<goldNotation>[gkmb])(?=$))/;
+const regexp = /(?:(?<=^)(?<neg>[-]){0,1}(?<gold>(?:\d{1,3}(?:(?:[,]\d{3})+|(?:[_]\d{3})+))|\d+)(?:[.](?<fractionalGold>\d+)){0,1}(?<goldNotation>[gkmb])(?=$))/i;
 
 type MatchGroups = Partial<NegativeGoldExpressionMatchGroup> & GoldNotationGoldExpressionMatchGroup & {
     gold: string;

@@ -3,7 +3,7 @@ import { GoldExpressionType, GoldExpressionTypeMatchableResolvable, NegativeGold
 import { Gold } from "../gold";
 
 
-const regexp = /(?:(?<=^)(?<neg>[-]){0,1}(?:(?<and_silver>\d{1,2})[s][ ]*(?<and_copper>\d{1,2})[c])(?=$))/;
+const regexp = /(?:(?<=^)(?<neg>[-]){0,1}(?:(?<and_silver>\d{1,2})[s][ ]*(?<and_copper>\d{1,2})[c])(?=$))/i;
 
 type MatchGroups = Partial<NegativeGoldExpressionMatchGroup> & {
     and_silver?: string;

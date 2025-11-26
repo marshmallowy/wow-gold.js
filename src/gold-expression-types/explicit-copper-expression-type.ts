@@ -2,7 +2,7 @@ import Decimal from "decimal.js";
 import { GoldExpressionType, GoldExpressionTypeMatchableResolvable, NegativeGoldExpressionMatchGroup } from "../gold-expression-type";
 
 
-const regexp = /(?:(?<=^)(?<neg>[-]){0,1}(?<explicitCopper>(?:\d{1,3}(?:(?:[,]\d{3})+|(?:[_]\d{3})+))|\d+)(?:[.](?<fractionalCopper>\d+)){0,1}[c](?=$))/;
+const regexp = /(?:(?<=^)(?<neg>[-]){0,1}(?<explicitCopper>(?:\d{1,3}(?:(?:[,]\d{3})+|(?:[_]\d{3})+))|\d+)(?:[.](?<fractionalCopper>\d+)){0,1}[c](?=$))/i;
 
 type MatchGroups = Partial<NegativeGoldExpressionMatchGroup> & {
     explicitCopper: string;
