@@ -13,9 +13,9 @@ import { Gold } from "../gold";
  * @note Not intended to be used as standalone expressions.
  */
 const regexpParts = {
-    gold: /(?:(?<neg>[-]){0,1}(?<gold>(?:\d{1,3}(?:(?:[,]\d{3})+|(?:[_]\d{3})+))|\d+)(?:[.](?<fractionalGold>\d+)){0,1}(?<goldNotation>[gkmb]){0,1})/i,
-    silverAndCopperSuffix: /(?:(?<=(?<![.]\d+)[gkmb])[ ]*(?<and_silver>\d{1,2})[s][ ]*(?<and_copper>\d{1,2})[c])/i,
-    silverOrCopperSuffix: /(?:(?<=(?<![.]\d+)[gkmb])[ ]*(?:(?<or_silver>\d{1,2})[s]|(?<or_copper>\d{1,2})[c]))/i
+    gold: /(?:(?<neg>[-]){0,1}(?<gold>(?:\d{1,3}(?:(?:[,]\d{3})+|(?:[_]\d{3})+))|\d+)(?:[.](?<fractionalGold>\d+)){0,1}(?<goldNotation>[gkmb]){0,1})/,
+    silverAndCopperSuffix: /(?:(?<=(?<![.]\d+)[gkmb])[ ]*(?<and_silver>\d{1,2})[s][ ]*(?<and_copper>\d{1,2})[c])/,
+    silverOrCopperSuffix: /(?:(?<=(?<![.]\d+)[gkmb])[ ]*(?:(?<or_silver>\d{1,2})[s]|(?<or_copper>\d{1,2})[c]))/
 }
 
 const regexp = (() => {
@@ -23,9 +23,9 @@ const regexp = (() => {
         regexpParts.silverAndCopperSuffix.source,
         regexpParts.silverOrCopperSuffix.source,
     ].join('|');
-    const genericGoldSuffixExpParts = new RegExp(`(?:${goldBaseSuffixParts}){0,1}`);
+    const genericGoldSuffixExpParts = new RegExp(`(?:${goldBaseSuffixParts}){0,1}`, 'i');
 
-    return new RegExp(`(?<=^)(?:${regexpParts.gold.source}${genericGoldSuffixExpParts.source})(?=$)`);
+    return new RegExp(`(?<=^)(?:${regexpParts.gold.source}${genericGoldSuffixExpParts.source})(?=$)`, 'i');
 })();
 
 type MatchGroups = Partial<NegativeGoldExpressionMatchGroup> & Partial<GoldNotationGoldExpressionMatchGroup> & {

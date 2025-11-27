@@ -598,7 +598,7 @@ export class Gold implements GoldMath {
      * @returns the notation multiplier.
      */
     public static getGoldNotationCopperMultiplier(notation?: Gold.GoldNotation | (string & {})) {
-        notation = (notation && GOLD_NOTATIONS.includes(notation as any)) ? notation : 'g';
+        notation = (notation && GOLD_NOTATIONS.includes(notation.toLowerCase() as any)) ? notation.toLowerCase() : 'g';
         return GoldNotationCopperMultiplier[notation as Gold.GoldNotation]
     }
 
